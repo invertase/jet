@@ -2,6 +2,7 @@ android/gradlew
 android/gradlew.bat
 android/gradle
 android/.gradle
+android.iml
 
 # OSX
 #

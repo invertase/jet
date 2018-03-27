@@ -10,8 +10,8 @@ import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class BridgePackage implements ReactPackage {
-    public BridgePackage() {
+public class RNBridgePackage implements ReactPackage {
+    public RNBridgePackage() {
     }
 
     /**
@@ -21,7 +21,7 @@ public class BridgePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new Bridge(reactContext));
+        modules.add(new RNBridge(reactContext));
 
         return modules;
     }

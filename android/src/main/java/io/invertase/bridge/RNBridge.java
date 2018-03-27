@@ -10,8 +10,8 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 
-public class Bridge extends ReactContextBaseJavaModule {
-    Bridge(ReactApplicationContext reactContext) {
+public class RNBridge extends ReactContextBaseJavaModule {
+    RNBridge(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
