@@ -15,9 +15,11 @@ RCT_EXPORT_METHOD(reload) {
 }
 
 RCT_EXPORT_METHOD(debug:(BOOL)value) {
-  [[NSUserDefaults standardUserDefaults] setObject:value forKey:kRCTDevSettingIsDebuggingRemotely];
-  _bridge.executorClass = value ? objc_getClass("RCTWebSocketExecutor") : nil;
-  [_bridge reload];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:value] forKey:kRCTDevSettingIsDebuggingRemotely];
+    _bridge.executorClass = value ? NSClassFromString(@"RCTWebSocketExecutor") : nil;
+    [_bridge reload];
+  });
   return;
 }
 
