@@ -1,7 +1,9 @@
 #import "RNBridge.h"
+#import <objc/runtime.h>
 #import <React/RCTBridge.h>
 
 static NSString *const kRCTDevSettingIsDebuggingRemotely = @"isDebuggingRemotely";
+static NSString *const kRCTDevSettingsUserDefaultsKey = @"RCTDevMenu";
 
 @implementation RNBridge
 
@@ -16,8 +18,11 @@ RCT_EXPORT_METHOD(reload) {
 
 RCT_EXPORT_METHOD(debug:(BOOL)value) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:value] forKey:kRCTDevSettingIsDebuggingRemotely];
-    _bridge.executorClass = value ? NSClassFromString(@"RCTWebSocketExecutor") : nil;
+    NSDictionary *existingSettings = [[NSUserDefaults standardUserDefaults] objectForKey:kRCTDevSettingsUserDefaultsKey];
+    NSMutableDictionary *_settings = existingSettings ? [existingSettings mutableCopy] : [NSMutableDictionary dictionary];
+    _settings[kRCTDevSettingIsDebuggingRemotely] = @(value);
+    [[NSUserDefaults standardUserDefaults] setObject:_settings forKey:kRCTDevSettingsUserDefaultsKey];
+    _bridge.executorClass = value ? objc_getClass("RCTWebSocketExecutor") : nil;
     [_bridge reload];
   });
   return;
