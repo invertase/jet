@@ -1,0 +1,60 @@
+{
+  "name": "bridge",
+  "version": "1.0.0",
+  "license": "APACHE-2.0",
+  "author": "Invertase <oss@invertase.io> (http://invertase.io)",
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint ./src ./server ",
+    "lint-fix": "eslint --fix ./src ./server",
+    "postinstall": "opencollective postinstall || exit 0"
+  },
+  "optionalDependencies": {
+    "detox": "^7.2.0",
+    "mocha": "^4.0.0"
+  },
+  "peerDependencies": {
+    "detox": "^7.2.0",
+    "mocha": "^4.0.0"
+  },
+  "dependencies": {
+    "ws": "^5.1.0",
+    "chalk": "^2.3.2",
+    "source-map": "^0.7.2",
+    "error-stack-parser": "^2.0.1",
+    "istanbul-lib-coverage": "^1.2.0"
+  },
+  "devDependencies": {
+    "react": "^16.2.0",
+    "eslint": "^4.18.2",
+    "prettier": "^1.11.1",
+    "lint-staged": "^7.0.0",
+    "babel-eslint": "^8.2.2",
+    "react-native": "^0.52.3",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.46.1"
+  },
+  "lint-staged": {
+    "src/{components|helpers|pages}/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "server/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/react-native-firebase"
+  }
+}
