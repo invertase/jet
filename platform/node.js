@@ -1,1 +1,1 @@
-require('./../lib/node');
+module.exports = require('./../lib/node');
