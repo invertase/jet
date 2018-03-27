@@ -23,7 +23,6 @@ RCT_EXPORT_METHOD(debug:(BOOL)value) {
     _settings[kRCTDevSettingIsDebuggingRemotely] = @(value);
     [[NSUserDefaults standardUserDefaults] setObject:_settings forKey:kRCTDevSettingsUserDefaultsKey];
     _bridge.executorClass = value ? objc_getClass("RCTWebSocketExecutor") : nil;
-    [_bridge reload];
   });
   return;
 }
