@@ -50,6 +50,7 @@ public class RNBridge extends ReactContextBaseJavaModule {
         if (instanceManager == null) return;
 
         instanceManager.getDevSupportManager().getDevSettings().setRemoteJSDebugEnabled(value);
+        reload();
     }
 
     @Override
