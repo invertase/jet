@@ -10,7 +10,9 @@ Currently it extends upon [`wix/detox`](https://github.com/wix/detox) and Mocha 
 npm i bridge@next
 ```
 
-Docs are TODO - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js)
+### Docs are TODO
+
+An idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js)
 
 ## Previews
 
