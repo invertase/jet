@@ -15,7 +15,7 @@ Detox provides all the functionality you'll need to control your testing app, de
 
 ### Docs are TODO
 
-Sorry the docs are still to be written up - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js) We also have [this example testing project.](https://github.com/invertase/react-native-firebase/tree/bridge-detox/tests-new)
+Sorry the docs are still to be written up - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js) We also have [this example testing project.](https://github.com/invertase/react-native-firebase/tree/master/bridge)
 
 The alpha is available on the `next` tag:
 
@@ -25,7 +25,7 @@ npm i bridge@next
 
 ## Previews
 
-The below previews are from [this example testing project](https://github.com/invertase/react-native-firebase/tree/bridge-detox/tests-new) and are running a small batch of Mocha tests for [react-native-firebase](https://github.com/invertase/react-native-firebase) inside Nodejs:
+The below previews are from [this example testing project](https://github.com/invertase/react-native-firebase/tree/master/bridge) and are running a small batch of Mocha tests for [react-native-firebase](https://github.com/invertase/react-native-firebase) inside Nodejs:
 
 ### iOS
 
