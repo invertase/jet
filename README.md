@@ -1,5 +1,9 @@
 # Bridge
 
+```bash
+npm i bridge@next
+```
+
 TODO docs
 
 ## Previews
