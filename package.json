@@ -1,6 +1,6 @@
 {
   "name": "bridge",
-  "version": "0.2.0",
+  "version": "1.0.0-alpha2",
   "license": "APACHE-2.0",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "scripts": {
@@ -18,11 +18,12 @@
     "mocha": "^4.0.0"
   },
   "dependencies": {
-    "ws": "^5.1.0",
     "chalk": "^2.3.2",
-    "source-map": "^0.7.2",
     "error-stack-parser": "^2.0.1",
-    "istanbul-lib-coverage": "^1.2.0"
+    "istanbul-lib-coverage": "^1.2.0",
+    "opencollective": "^1.0.3",
+    "source-map": "^0.7.2",
+    "ws": "^5.1.0"
   },
   "rnpm": {
     "android": {
