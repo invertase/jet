@@ -25,7 +25,7 @@ npm i bridge@next
 
 ## Previews
 
-The below previews are from [this example testing project](https://github.com/invertase/react-native-firebase/tree/bridge-detox/tests-new) and are running a small batch of Mocha tests inside Nodejs:
+The below previews are from [this example testing project](https://github.com/invertase/react-native-firebase/tree/bridge-detox/tests-new) and are running a small batch of Mocha tests for [react-native-firebase](https://github.com/invertase/react-native-firebase) inside Nodejs:
 
 ### iOS
 
