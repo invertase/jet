@@ -6,13 +6,22 @@ Bridge was built around our requirements for [React Native Firebase](https://git
 
 Currently it extends upon [`wix/detox`](https://github.com/wix/detox) and Mocha (we'd also like to add Jest support). Detox provides all the functionality you'll need to control your testing app and device.
 
-```bash
-npm i bridge@next
-```
+
+----
+
+**Discord** (`bridge` channel): https://discord.gg/C9aK28N
+
+----
 
 ### Docs are TODO
 
 Sorry the docs are still to be written up - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js)
+
+The alpha is available on the `next` tag:
+
+```bash
+npm i bridge@next
+```
 
 ## Previews
 
