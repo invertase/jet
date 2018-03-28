@@ -1,6 +1,6 @@
 # Bridge
 
-Bridge lets you to bring your React Native JS code into Node.js and test it mock free and native code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (incl. coverage!). 
+Bridge lets you bring your React Native JS code into Node.js and test it mock free and native code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (incl. coverage!). 
 
 Bridge was built around our requirements for [React Native Firebase](https://github.com/invertase/react-native-firebase) - an extensive React Native module with a ton of native code that we want to test heavily end-to-end.
 
