@@ -2,7 +2,7 @@
 
 Bridge lets you bring your React Native JS code into Nodejs and test it mock free and native code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (incl. coverage!). 
 
-Bridge was built around our requirements for [React Native Firebase](https://github.com/invertase/react-native-firebase) - an extensive React Native module with a ton of native code that we want to test heavily end-to-end.
+Bridge was built around our requirements for [React Native Firebase](https://github.com/invertase/react-native-firebase) - an extensive React Native module with a ton of native code that we needed to test heavily end-to-end.
 
 Currently it extends upon [`wix/detox`](https://github.com/wix/detox) and Mocha (we'd also like to add Jest support). Detox provides all the functionality you'll need to control your testing app and device.
 
