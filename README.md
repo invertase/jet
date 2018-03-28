@@ -15,7 +15,7 @@ Detox provides all the functionality you'll need to control your testing app, de
 
 ## Documentation
 
-Sorry the docs are still to be written up - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/bridge-detox/tests-new/e2e/bridge.spec.js) We also have [this example testing project.](https://github.com/invertase/react-native-firebase/tree/master/bridge)
+Sorry the docs are still to be written up - but an idea of what you can do with it can been seen in the early [bridge testing suite here.](https://github.com/invertase/react-native-firebase/blob/master/bridge/e2e/bridge.spec.js) We also have [this example testing project.](https://github.com/invertase/react-native-firebase/tree/master/bridge)
 
 The alpha is available on the `next` tag:
 
