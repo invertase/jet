@@ -1,4 +1,20 @@
-# Bridge
+<p align="center">
+  <a href="https://github.com/invertase/bridge">
+    <img src="https://i.imgur.com/Srik55r.png"><br/>
+  </a>
+  <h2 align="center">Bridge</h2>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/bridge"><img src="https://img.shields.io/npm/dm/bridge.svg?style=flat-square" alt="NPM downloads"></a>
+  <a href="https://www.npmjs.com/package/bridge"><img src="https://img.shields.io/npm/v/bridge.svg?style=flat-square" alt="NPM version"></a>
+  <a href="/LICENSE"><img src="https://img.shields.io/npm/l/bridge.svg?style=flat-square" alt="License"></a>
+  <a href="#backers"><img src="https://opencollective.com/react-native-firebase/backers/badge.svg" alt="Backers on Open Collective"></a>
+  <a href="#sponsors"><img src="https://opencollective.com/react-native-firebase/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
+  <a href="https://discord.gg/C9aK28N"><img src="https://img.shields.io/discord/295953187817521152.svg?logo=discord&style=flat-square&colorA=7289da&label=discord" alt="Chat"></a>
+  <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
+</p>
+
 
 Bridge lets you bring your React Native JS code into Nodejs and test it mock free and native testing code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (including coverage 💯). 
 
