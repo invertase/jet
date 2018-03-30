@@ -13,6 +13,8 @@ npm-debug.log
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
+website/
+docs/
 
 # Config files
 .babelrc
