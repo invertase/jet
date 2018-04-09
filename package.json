@@ -41,6 +41,7 @@
     "istanbul-lib-coverage": "^1.2.0",
     "opencollective": "^1.0.3",
     "source-map": "^0.7.2",
+    "tinyqueue": "^1.2.3",
     "ws": "^5.1.0"
   },
   "rnpm": {
