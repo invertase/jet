@@ -1,4 +1,4 @@
-package io.invertase.bridge;
+package io.salakar.bridge;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

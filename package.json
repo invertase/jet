@@ -3,7 +3,11 @@
   "version": "0.2.7",
   "license": "APACHE-2.0",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
-  "author": "Invertase <oss@invertase.io> (http://invertase.io)",
+  "author": {
+    "name": "Mike Diarmid",
+    "email": "mike.diarmid@gmail.com",
+    "url": "http://github.com/Salakar/"
+  },
   "keywords": [
     "react-native",
     "react native module",
@@ -24,8 +28,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "lint": "eslint ./src ./server ",
-    "lint-fix": "eslint --fix ./src ./server",
-    "postinstall": "opencollective postinstall || exit 0"
+    "lint-fix": "eslint --fix ./src ./server"
   },
   "optionalDependencies": {
     "detox": "^7.2.0",
@@ -39,7 +42,6 @@
     "chalk": "^2.3.2",
     "error-stack-parser": "^2.0.1",
     "istanbul-lib-coverage": "^1.2.0",
-    "opencollective": "^1.0.3",
     "source-map": "^0.7.2",
     "tinyqueue": "^1.2.3",
     "ws": "^5.1.0"
@@ -47,7 +49,7 @@
   "rnpm": {
     "android": {
       "buildPatch": "compile project(':bridge')",
-      "packageImportPath": "import io.invertase.bridge.RNBridgePackage;",
+      "packageImportPath": "import io.salakar.bridge.RNBridgePackage;",
       "packageInstance": "new RNBridgePackage()"
     }
   },
@@ -77,9 +79,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/react-native-firebase"
   }
 }

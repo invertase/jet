@@ -1,4 +1,4 @@
-package io.invertase.bridge;
+package io.salakar.bridge;
 
 import android.app.Activity;
 import android.os.Handler;
