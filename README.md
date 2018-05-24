@@ -9,7 +9,7 @@
   <a href="https://www.npmjs.com/package/bridge"><img src="https://img.shields.io/npm/dm/bridge.svg?style=flat-square" alt="NPM downloads"></a>
   <a href="https://www.npmjs.com/package/bridge"><img src="https://img.shields.io/npm/v/bridge.svg?style=flat-square" alt="NPM version"></a>
   <a href="/LICENSE"><img src="https://img.shields.io/npm/l/bridge.svg?style=flat-square" alt="License"></a>
-  <a href="https://twitter.com/Salakar"><img src="https://img.shields.io/twitter/follow/Salakar.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
+  <a href="https://twitter.com/mikediarmid"><img src="https://img.shields.io/twitter/follow/mikediarmid.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
 
