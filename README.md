@@ -15,13 +15,17 @@
 
 > **WARNING:** Jet (formerly [Bridge](https://github.com/Salakar/bridge)) is currently a Proof of Concept, APIs and usage is likely to change by the first release version.
 
-> This repo is in re-development and as such maybe not be fully functional. A parked version of the Proof of Concept can be found [here](https://github.com/Salakar/bridge).
+> This repo is in development and as such maybe not be fully functional. A parked version of the Proof of Concept can be found [here](https://github.com/Salakar/bridge).
+
+----
 
 Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (including coverage 💯).
 
 Jet extends upon [`wix/detox`](https://github.com/wix/detox) and by default the [Mocha testing framework](https://mochajs.org/).
 
 Detox provides all the functionality you'll need to control your testing app, device and it's UI (if you have one) whilst Jet allows JS code execution in the context of your RN app via Node.js - giving you full access to all the Native api's exactly like you'd have inside your app.
+
+----
 
 > Latest supported React Native version: **^0.56.0**
 
