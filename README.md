@@ -15,7 +15,7 @@
 
 > **WARNING:** Jet (formerly [Bridge](https://github.com/Salakar/bridge)) is currently a Proof of Concept, APIs and usage is likely to change by the first release version.
 
-> This repo is in development and as such maybe not be fully functional. A parked version of the Proof of Concept can be found [here](https://github.com/Salakar/bridge).
+> This repo is in development and as such maybe not be fully functional. A parked working version of the Proof of Concept can be found [here](https://github.com/Salakar/bridge).
 
 ----
 
