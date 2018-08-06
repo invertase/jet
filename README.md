@@ -19,7 +19,7 @@
 
 ----
 
-Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services (including coverage 💯).
+Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services.
 
 Jet extends upon [`wix/detox`](https://github.com/wix/detox) and by default the [Mocha testing framework](https://mochajs.org/).
 
@@ -49,7 +49,7 @@ Supports debugging your test suites and your React Native JS bundle using the st
 ![debugging](https://static.invertase.io/assets/jet/debugging.gif)
 
 
-### 📐 Coverage
+### 💯 Coverage
 
 Get full code coverage output for your React Native module's JS API using [istanbul/nyc](https://github.com/istanbuljs/nyc) coverage tools.
 
