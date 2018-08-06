@@ -25,9 +25,9 @@ Detox provides all the functionality you'll need to control your testing app, de
 
 ## Features
 
-### Run your test suites in NodeJS 
+### Test with JavaScript 
 
-Your test suites and your React Native code run inside NodeJS - making testing your modules with NodeJS testing frameworks such as Mocha easy.
+Your test suites and your React Native code run inside NodeJS - making testing your modules with NodeJS testing frameworks (mocha only currently) easy.
 
 ![test suite](https://static.invertase.io/assets/jet/tests-1.gif)
 
@@ -38,17 +38,34 @@ Supports debugging your test suites and your React Native JS bundle using the st
 
 ![debugging](https://static.invertase.io/assets/jet/debugging.gif)
 
+
 ### Coverage
 
 Get full code coverage output for your React Native module's JS API using [istanbul/nyc](https://github.com/istanbuljs/nyc) coverage tools.
 
 ![coverage](https://static.invertase.io/assets/jet/coverage.png)
 
+
 ### Full Detox API support
 
 Supports the full [Detox API](https://github.com/wix/detox/blob/master/docs/README.md#api-reference); reloading or relaunching your app automatically reconnects to your React Native JS bundle.
 
 ![detox](https://static.invertase.io/assets/jet/detox.png)
+
+
+### Full access to React Native bundle context
+
+Jet gives you full access to the JS context of your React Native app inside NodeJS ⚡️. 
+
+Some examples of what you can do with this power:
+
+  - Expose your root view/component to Jet on mount; allowing you to then programatically modify it inside tests, e.g. calling `setState()` on it inside a test - why not?
+  - Expose your stores, allowing them to be controlled in tests - e.g. Redux.
+  - Require any of your React Native apps bundled modules/files inside NodeJS, for example;
+    - `const { Platform } = jet.require('react-native');` - e.g. - platform specific test logic.
+    - `const CollectionReference = jet.require('dist/modules/firestore/CollectionReference');` - e.g. for `instanceof` tests.
+
+
 
 ----
 
@@ -66,6 +83,6 @@ For now please see the open issues tracking work that needs doing. Full contribu
 
 These projects use Jet to test their modules:
 
-- [React Native Firebase](https://github.com/invertase/react-native-firebase): A well tested feature rich Firebase implementation for React Native, supporting both iOS & Android platforms for 12+ Firebase modules (including a feature rich Notifications implementation) 🔥
+- [React Native Firebase](https://github.com/invertase/react-native-firebase): 🔥 A well tested feature rich modular Firebase implementation for React Native. Supports both iOS & Android platforms for over 15 Firebase services.
 
 Submit a PR to add your project here.
