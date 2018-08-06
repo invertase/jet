@@ -28,7 +28,7 @@ Sorry the docs are still to be written up - but an idea of what you can do with 
 The alpha is available on the `next` tag:
 
 ```bash
-npm i bridge@next
+npm i jet@next
 ```
 
 ## How can I help?
@@ -50,7 +50,7 @@ The below previews are from [this example testing project](https://github.com/in
 ![android](https://cdn.discordapp.com/attachments/362967412175405059/428357262055178240/2018-03-28_01.55.43.gif)
 
 
-## Projects using Bridge
+## Projects using Jet
 
 These projects use Bridge to test their modules:
 
