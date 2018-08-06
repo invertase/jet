@@ -48,6 +48,8 @@ Get full code coverage output for your React Native module's JS API using [istan
 
 Supports the full [Detox API](https://github.com/wix/detox/blob/master/docs/README.md#api-reference); reloading or relaunching your app automatically reconnects to your React Native JS bundle.
 
+![detox](https://static.invertase.io/assets/jet/detox.png)
+
 ----
 
 ## Documentation
