@@ -89,7 +89,7 @@ This greatly increases the speed of tests and reduces round trips to native. Add
 
 ## 📖 Documentation
 
-Sorry the docs are still to be written up - but an idea APIs/what you can do with it can been seen in the early [Jet testing suite here for React Native Firebase.](https://github.com/invertase/react-native-firebase/blob/master/bridge/e2e/bridge.spec.js) There's also the [React Native Firebase testing project](https://github.com/Salakar/react-native-firebase/tree/master/bridge) for reference.
+Sorry the docs are still to be written up - but an idea APIs/what you can do with it can been seen in the early [Jet testing suite here for React Native Firebase.](https://github.com/invertase/react-native-firebase/blob/master/bridge/e2e/bridge.spec.js) There's also the [React Native Firebase testing project](https://github.com/invertase/react-native-firebase/tree/master/bridge) for reference.
 
 
 ## 💛 How can I help?
