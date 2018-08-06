@@ -34,7 +34,7 @@ public class RNBridge extends ReactContextBaseJavaModule {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                instanceManager.recreateReactContextInBackground();
+                // instanceManager.recreateReactContextInBackground();
             }
         });
     }
