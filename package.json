@@ -31,20 +31,20 @@
     "lint-fix": "eslint --fix ./src ./server"
   },
   "optionalDependencies": {
-    "detox": "^7.2.0",
-    "mocha": "^4.0.0"
+    "detox": "^8.1.1",
+    "mocha": "^5.2.0"
   },
   "peerDependencies": {
-    "detox": "^7.2.0",
-    "mocha": "^4.0.0"
+    "detox": "^8.1.1",
+    "mocha": "^5.2.0"
   },
   "dependencies": {
-    "chalk": "^2.3.2",
-    "error-stack-parser": "^2.0.1",
+    "chalk": "^2.4.1",
+    "error-stack-parser": "^2.0.2",
     "istanbul-lib-coverage": "^1.2.0",
-    "source-map": "^0.7.2",
+    "source-map": "^0.7.3",
     "tinyqueue": "^1.2.3",
-    "ws": "^5.1.0"
+    "ws": "^6.0.0"
   },
   "rnpm": {
     "android": {
