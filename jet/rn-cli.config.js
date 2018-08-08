@@ -19,12 +19,6 @@ module.exports = {
       'react',
       // need to include all the packages used by
       // the parent library - in this case Jet
-      'chalk',
-      'error-stack-parser',
-      'istanbul-lib-coverage',
-      'source-map',
-      'tinyqueue',
-      'ws',
       'should',
       'should-sinon',
       'sinon',
@@ -35,7 +29,12 @@ module.exports = {
       new RegExp(`^${escape(resolve(__dirname, '..', 'node_modules'))}\\/.*$`),
       new RegExp(`^${escape(resolve(__dirname, '..', 'tests'))}\\/.*$`),
       new RegExp(
-        `^${escape(resolve(__dirname, '..', 'tests', 'node_modules'))}\\/.*$`,
+        `^${escape(resolve(__dirname, '..', 'tests', 'node_modules'))}\\/.*$`
+      ),
+      new RegExp(
+        `^${escape(
+          resolve(__dirname, '..', 'jet', 'node_modules', 'nyc')
+        )}\\/.*$`
       ),
     ]);
   },
