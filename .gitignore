@@ -46,3 +46,4 @@ android/app/libs
 android/keystores/debug.keystore
 website/build
 ios/Pods
+*.iml
