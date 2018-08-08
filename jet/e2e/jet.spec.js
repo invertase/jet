@@ -1,4 +1,3 @@
-
 describe('jet', () => {
   it('should provide -> global.jet', async () => {
     should(jet).not.be.undefined();
@@ -31,7 +30,7 @@ describe('jet', () => {
 
     // test setting state
     await new Promise(resolve =>
-      jet.root.setState({ message: 'hello world' }, resolve),
+      jet.root.setState({ message: 'hello world' }, resolve)
     );
     should(jet.root.state.message).equal('hello world');
     return Promise.resolve();
