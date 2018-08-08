@@ -1,4 +1,4 @@
-package io.salakar.bridge;
+package io.invertase.bridge;
 
 import android.app.Activity;
 import android.os.Handler;
@@ -10,8 +10,8 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 
-public class RNBridge extends ReactContextBaseJavaModule {
-    RNBridge(ReactApplicationContext reactContext) {
+public class Jet extends ReactContextBaseJavaModule {
+    Jet(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
@@ -55,7 +55,6 @@ public class RNBridge extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "RNBridge";
+        return "Jet";
     }
-
 }

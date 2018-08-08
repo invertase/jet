@@ -1,4 +1,4 @@
-package io.salakar.bridge;
+package io.invertase.jet;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -10,8 +10,8 @@ import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class RNBridgePackage implements ReactPackage {
-    public RNBridgePackage() {
+public class JetPackage implements ReactPackage {
+    public JetPackage() {
     }
 
     /**
