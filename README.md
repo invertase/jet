@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://invertase.io">
-    <img height="240" src="https://static.invertase.io/assets/jet-animated.gif"><br/>
+    <img height="256" src="https://static.invertase.io/assets/jet.png"><br/>
   </a>
   <h2 align="center">Jet</h2>
 </p>
