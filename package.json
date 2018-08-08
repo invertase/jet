@@ -44,7 +44,10 @@
     "istanbul-lib-coverage": "^1.2.0",
     "source-map": "^0.7.3",
     "tinyqueue": "^1.2.3",
-    "ws": "^6.0.0"
+    "ws": "^6.0.0",
+    "should": "^13.2.1",
+    "should-sinon": "0.0.6",
+    "sinon": "^6.1.4"
   },
   "rnpm": {
     "android": {
