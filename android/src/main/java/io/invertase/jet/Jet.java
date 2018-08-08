@@ -1,4 +1,4 @@
-package io.invertase.bridge;
+package io.invertase.jet;
 
 import android.app.Activity;
 import android.os.Handler;

@@ -3,6 +3,7 @@ package io.invertase.jet;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class JetPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNBridge(reactContext));
+        modules.add(new Jet(reactContext));
 
         return modules;
     }
