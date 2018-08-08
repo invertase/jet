@@ -1,8 +1,13 @@
+**/android/gradlew
+**/android/gradlew.bat
+**/android/gradle
+**/android/.gradle
 android/gradlew
 android/gradlew.bat
 android/gradle
 android/.gradle
-android.iml
+*.iml
+
 
 # OSX
 #
@@ -20,13 +25,17 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
+**/xcuserdata
 *.xccheckout
 *.moved-aside
 DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
+*.xcworkspace
+ios/Pods
+
+
 
 # Android/IJ
 #
@@ -45,5 +54,3 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 website/build
-ios/Pods
-*.iml
