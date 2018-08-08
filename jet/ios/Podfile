@@ -9,15 +9,12 @@ target 'testing' do
 
   react_native_path = "../node_modules/react-native"
   pod "yoga", :path => "#{react_native_path}/ReactCommon/yoga"
-
-  # Pods for ReactNativeFirebaseDemo
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
    'Core',
    'RCTText',
    'RCTNetwork',
    'RCTWebSocket',
    ]
-
   pod 'Jet', :path => '../../ios/Jet.podspec'
 
   post_install do |installer|
