@@ -1,14 +1,12 @@
 package io.invertase.jet;
 
 import android.app.Activity;
-import android.os.Handler;
-import android.os.Looper;
 
 import com.facebook.react.ReactApplication;
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
 
 public class Jet extends ReactContextBaseJavaModule {
     Jet(ReactApplicationContext reactContext) {
@@ -18,6 +16,7 @@ public class Jet extends ReactContextBaseJavaModule {
     private ReactInstanceManager getReactInstanceManager() {
         Activity currentActivity = getCurrentActivity();
         if (currentActivity == null) return null;
+
         ReactApplication reactApplication = (ReactApplication) currentActivity.getApplication();
         return reactApplication.getReactNativeHost().getReactInstanceManager();
     }
@@ -31,10 +30,13 @@ public class Jet extends ReactContextBaseJavaModule {
         final ReactInstanceManager instanceManager = getReactInstanceManager();
         if (instanceManager == null) return;
 
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
+        Activity currentActivity = getCurrentActivity();
+        if (currentActivity == null) return;
+
+        currentActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // instanceManager.recreateReactContextInBackground();
+                instanceManager.recreateReactContextInBackground();
             }
         });
     }
