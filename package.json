@@ -1,7 +1,7 @@
 {
   "name": "jet",
   "version": "0.0.2",
-  "license": "APACHE-2.0",
+  "license": "Apache-2.0",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
   "author": {
     "name": "Mike Diarmid",
