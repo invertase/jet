@@ -51,9 +51,9 @@
   },
   "rnpm": {
     "android": {
-      "buildPatch": "compile project(':bridge')",
-      "packageImportPath": "import io.salakar.bridge.RNBridgePackage;",
-      "packageInstance": "new RNBridgePackage()"
+      "buildPatch": "compile project(':jet')",
+      "packageImportPath": "import io.invertase.jet.JetPackage;",
+      "packageInstance": "new JetPackage()"
     }
   },
   "devDependencies": {
