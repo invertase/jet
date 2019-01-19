@@ -90,6 +90,28 @@ This greatly increases the speed of tests and reduces round trips to native. Add
 
 Sorry the docs are still to be written up - but an idea APIs/what you can do with it can been seen in the early [Jet testing suite here for React Native Firebase.](https://github.com/invertase/react-native-firebase/blob/master/tests/e2e/jet.spec.js) There's also the [React Native Firebase testing project](https://github.com/invertase/react-native-firebase/tree/master/tests) for reference.
 
+## Quick Setup
+
+```
+$ yarn add jet
+```
+
+```
+$ react-native link jet
+```
+
+in your mocha.opts add
+
+```
+--require jet/platform/node
+```
+
+You can update your package.json scripts with a task for packager-jet:
+```
+"packager-jet": "REACT_DEBUGGER='echo nope' react-native start",
+```
+
+Before starting your tests launch the packager-jet and afterwards start your detox tests.
 
 ## 💛 How can I help?
 
