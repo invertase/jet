@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source              = { :git => "https://github.com/invertase/jet.git", :tag => "v#{s.version}" }
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.platform            = :ios, "9.0"
-  s.source_files        = 'Jet/**/*.{h,m}'
+  s.source_files        = '*.{h,m}'
   s.dependency          'React'
 end
