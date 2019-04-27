@@ -13,22 +13,22 @@
   <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
-> **WARNING:** Jet (formerly [Bridge](https://github.com/Salakar/bridge)) is currently a Proof of Concept, APIs and usage is likely to change by the first release version.
+> **WARNING:** Jet is currently a Proof of Concept, APIs and usage is likely to change by the first release version.
 
-> This repo is in development and does not have a full release version yet. v0.1.0 is the latest stable version in it's current form - this works on Android & iOS on React Native ^0.56-57 and Detox ^9.0.1.
+> This repo is in development and does not have a full release version yet. v0.1.0 is the latest stable version in it's current form - this works on Android & iOS on React Native ^0.56-59.5 and Detox ^10.0.13.
 ----
 
-Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free. Perfect for React Native module developers who want to fully test their packages end-to-end and setup continuous integration services.
+Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free - ideal for testing React Native modules e2e.
 
 Jet extends upon [`wix/detox`](https://github.com/wix/detox) and by default the [Mocha testing framework](https://mochajs.org/).
 
-Detox provides all the functionality you'll need to control your testing app, device and it's UI (if you have one) whilst Jet allows JS code execution in the context of your RN app via Node.js - giving you full access to all the Native api's exactly like you'd have inside your app.
+Detox provides all the functionality you'll need to control your testing app, device and it's UI (if you have one) whilst Jet allows JS code execution in the context of your RN app via Node.js - giving you full access to all the Native api's as you would have inside your app.
 
 ----
 
-> Latest supported React Native version: **^0.56.0**
+> Latest supported React Native version: **^0.59.5**
 
-> Latest supported Detox version: **^8.1.0**
+> Latest supported Detox version: **^10.0.13**
 
 ----
 
@@ -36,7 +36,7 @@ Detox provides all the functionality you'll need to control your testing app, de
 
 ### ⏩ Test with JavaScript 
 
-Your test suites and your React Native code run inside NodeJS - making testing your modules with NodeJS testing frameworks (mocha only currently) easy.
+Your test suites and your React Native code run inside NodeJS - making testing your modules with NodeJS testing frameworks (Mocha only currently, to be replaced with Jest) possible.
 
 ![test suite](https://static.invertase.io/assets/jet/tests-1.gif)
 
@@ -65,30 +65,6 @@ Supports the full [Detox API](https://github.com/wix/detox/blob/master/docs/READ
 ### ✨ Full access to React Native bundle context
 
 Jet gives you full access to the JS context of your React Native app inside NodeJS ⚡️. 
-
-Some examples of what you can do with this power:
-
-  - Expose your root view/component to Jet on mount; allowing you to then programatically modify it inside tests, e.g. calling `setState()` on it inside a test - why not?
-  - Expose your stores, allowing them to be controlled in tests - e.g. Redux.
-  - Require any of your React Native apps bundled modules/files inside NodeJS, for example;
-    - `const { Platform } = jet.require('react-native');` - e.g. - platform specific test logic.
-    - `const CollectionReference = jet.require('dist/modules/firestore/CollectionReference');` - e.g. for `instanceof` tests.
-
-### ⏱ Timing API -> NodeJS
-
-> **Experimental**
-
-React Native `JSTiming/Timing/RCTTiming` modules in Jet run inside NodeJS, this means that all timers are handled directly in NodeJS with no calls to Native device APIs using Jets [custom Timing class](https://github.com/invertase/jet/blob/master/lib/node/timing.js)
-
-This greatly increases the speed of tests and reduces round trips to native. Additionally this bypasses issues such as Android device time drifting (due to a incorrect date/time on device). This can also potentially be used to monitor FPS or control the FPS rate programmatically.
-
-----
-
-----
-
-## 📖 Documentation
-
-Sorry the docs are still to be written up - but an idea APIs/what you can do with it can been seen in the early [Jet testing suite here for React Native Firebase.](https://github.com/invertase/react-native-firebase/blob/master/tests/e2e/jet.spec.js) There's also the [React Native Firebase testing project](https://github.com/invertase/react-native-firebase/tree/master/tests) for reference.
 
 ## Quick Setup
 
