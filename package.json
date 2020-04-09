@@ -1,13 +1,14 @@
 {
   "name": "jet",
   "version": "0.4.2",
-  "license": "Apache-2.0",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
   "author": {
     "name": "Mike Diarmid",
     "email": "mike.diarmid@gmail.com",
     "url": "http://github.com/Salakar/"
   },
+  "main": "./lib/node",
+  "react-native": "./lib/react-native",
   "keywords": [
     "react-native",
     "react native module",
@@ -26,17 +27,14 @@
     "testing"
   ],
   "scripts": {
-    "precommit": "lint-staged",
-    "lint": "eslint ./src ./server ",
-    "lint-fix": "eslint --fix ./src ./server"
+    "lint": "eslint ./lib",
+    "lint-fix": "eslint --fix ./lib"
   },
   "optionalDependencies": {
-    "detox": "^12.5.0",
-    "mocha": "^5.2.0"
+    "mocha": "*"
   },
   "peerDependencies": {
-    "detox": "^12.5.0",
-    "mocha": "^5.2.0"
+    "mocha": "*"
   },
   "dependencies": {
     "chalk": "^2.4.1",
@@ -45,42 +43,17 @@
     "source-map": "^0.7.3",
     "tinyqueue": "^1.2.3",
     "ws": "^6.0.0",
-    "should": "^13.2.1",
+    "should": "^13.2.3",
     "should-sinon": "0.0.6",
-    "sinon": "^6.1.4"
-  },
-  "rnpm": {
-    "android": {
-      "buildPatch": "compile project(':jet')",
-      "packageImportPath": "import io.invertase.jet.JetPackage;",
-      "packageInstance": "new JetPackage()"
-    }
+    "sinon": "^9.0.2"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
-    "prettier": "^1.11.1",
-    "lint-staged": "^7.0.0",
-    "babel-eslint": "^8.2.2",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-prettier": "^2.5.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-flowtype": "^2.46.1"
-  },
-  "lint-staged": {
-    "src/{components|helpers|pages}/**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "server/**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md,scss}": [
-      "prettier --write",
-      "git add"
-    ]
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
   }
 }
