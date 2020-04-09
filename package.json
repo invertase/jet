@@ -45,7 +45,8 @@
     "ws": "^6.0.0",
     "should": "^13.2.3",
     "should-sinon": "0.0.6",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "util": "^0.12.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.18.0",
