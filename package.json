@@ -1,25 +1,28 @@
 {
   "name": "jet",
   "version": "0.8.0",
-  "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
-  "author": {
+  "license": "Apache-2.0",
+  "description": "Auto-generate a test app and auto-run simple API tests mock-free. Perfect for React Native module developers wanting full CI.",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "url": "https://github.com/invertase/jet",
+  "contributors": [
+  {
     "name": "Mike Diarmid",
     "email": "mike.diarmid@gmail.com",
-    "url": "http://github.com/Salakar/"
-  },
-  "main": "./lib/node",
-  "react-native": "./lib/react-native",
+    "url": "https://github.com/Salakar/"},
+  {
+    "name": "Mike Hardy",
+    "email": "github@mikehardy.net",
+    "url": "https://github.com/mikehardy/"
+  }
+  ],
   "keywords": [
     "react-native",
     "react native module",
     "detox",
-    "debugger",
     "mocha",
     "coverage",
-    "node",
-    "nodejs",
-    "protocol",
-    "batched bridge",
     "istanbul",
     "ci",
     "integration",
@@ -27,9 +30,14 @@
     "testing"
   ],
   "scripts": {
-    "precommit": "lint-staged",
-    "lint": "eslint ./lib/runner/* ",
-    "lint-fix": "eslint --fix ./lib/runner/*"
+    "validate:all:js": "eslint ./lib/runner --ext .js,.jsx,.ts,.tsx",
+    "validate:all:js-fix": "eslint --fix ./lib/runner --ext .js,.jsx,.ts,.tsx",
+    "validate:all:ts": "tsc --project ./lib",
+    "build": "tsc",
+    "build:clean": "rimraf rimraf android/build && rimraf ios/build && rimraf dist",
+    "build:watch": "tsc --watch",
+    "prepare": "yarn build",
+    "precommit": "lint-staged"
   },
   "optionalDependencies": {
     "detox": "^18.20.3",
@@ -38,6 +46,7 @@
   "peerDependencies": {
     "detox": "^12.5.0",
     "mocha": "^5.2.0",
+    "react": "+",
     "react-native": "+"
   },
   "dependencies": {
@@ -70,6 +79,7 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-native": "^0.66.0-rc.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.4.2"
   },
   "lint-staged": {

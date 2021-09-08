@@ -2,7 +2,7 @@
  * A base class for all tests.
  */
 
-import R from 'react';
+import * as React from 'react';
 
 export const enum TestType {
   // The test needs to be executed but requires no user interaction or validation
@@ -36,7 +36,7 @@ export interface Test {
   useFullScreenContainer?: boolean;
 
   // Renders the UI for the test
-  render(onMount: (component: any) => void): R.ReactNode;
+  render(onMount: (component: any) => void): React.ReactNode;
 }
 
 export interface AutoExecutableTest extends Test {

@@ -1,11 +1,11 @@
-import R from 'react';
-import RN from 'react-native';
+import * as React from 'react';
+import * as ReactNative from 'react-native';
 
 import * as CommonStyles from './CommonStyles';
 import { AutoExecutableTest, TestResult, TestType } from './Test';
 import TestRegistry from './TestRegistry';
 
-const _styles = RN.StyleSheet.create({
+const _styles = ReactNative.StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: 'stretch',
@@ -74,7 +74,7 @@ const _styles = RN.StyleSheet.create({
   },
 });
 
-export interface TestContainerProps extends R.ComponentPropsWithoutRef<any> {
+export interface TestContainerProps extends React.ComponentPropsWithoutRef<any> {
   test: string;
   prevResult?: TestResult;
   autoRun: boolean;
@@ -87,7 +87,7 @@ export interface TestContainerState {
   result?: TestResult;
 }
 
-export class TestContainer extends R.Component<TestContainerProps, TestContainerState> {
+export class TestContainer extends React.Component<TestContainerProps, TestContainerState> {
   constructor(props: TestContainerProps) {
     super(props);
 
@@ -97,7 +97,7 @@ export class TestContainer extends R.Component<TestContainerProps, TestContainer
     };
   }
 
-  componentDidUpdate(prevProps: TestContainerProps, prevState: TestContainerState) {
+  componentDidUpdate(_: TestContainerProps, prevState: TestContainerState) {
     if (this.props.autoRun) {
       if (!prevState.isTestRunning && !this.state.isTestRunning) {
         this._executeTest();
@@ -109,31 +109,31 @@ export class TestContainer extends R.Component<TestContainerProps, TestContainer
     const test = TestRegistry.getTest(this.props.test);
     const testType = test.getTestType();
 
-    let testResults: JSX.Element;
+    // let testResults: JSX.Element;
     const result = this.state.result || this.props.prevResult;
     const resultText: JSX.Element[] = [];
     if (!result) {
       resultText.push(
-        <RN.View style={_styles.resultItem} key="notrun">
-          <RN.Text style={_styles.notRunText}>
+        <ReactNative.View style={_styles.resultItem} key="notrun">
+          <ReactNative.Text style={_styles.notRunText}>
             {this.state.isTestRunning ? 'Test is running' : 'Test not run'}
-          </RN.Text>
-        </RN.View>
+          </ReactNative.Text>
+        </ReactNative.View>
       );
     } else {
       result.errors.forEach((error, index) => {
         resultText.push(
-          <RN.View style={_styles.resultItem} key={`error${index}`}>
-            <RN.Text style={_styles.errorText}>{error}</RN.Text>
-          </RN.View>
+          <ReactNative.View style={_styles.resultItem} key={`error${index}`}>
+            <ReactNative.Text style={_styles.errorText}>{error}</ReactNative.Text>
+          </ReactNative.View>
         );
       });
 
       if (resultText.length === 0) {
         resultText.push(
-          <RN.View style={_styles.resultItem} key="success">
-            <RN.Text style={_styles.successText}>Test succeeded</RN.Text>
-          </RN.View>
+          <ReactNative.View style={_styles.resultItem} key="success">
+            <ReactNative.Text style={_styles.successText}>Test succeeded</ReactNative.Text>
+          </ReactNative.View>
         );
       }
     }
@@ -142,33 +142,33 @@ export class TestContainer extends R.Component<TestContainerProps, TestContainer
     let optionalResultSection: JSX.Element | undefined;
     if (testType === TestType.AutoExecutable) {
       optionalResultSection = (
-        <RN.View style={_styles.resultContainer}>
-          <RN.ScrollView style={_styles.resultScrollView}>{resultText}</RN.ScrollView>
-        </RN.View>
+        <ReactNative.View style={_styles.resultContainer}>
+          <ReactNative.ScrollView style={_styles.resultScrollView}>{resultText}</ReactNative.ScrollView>
+        </ReactNative.View>
       );
     }
 
     let rightButton: JSX.Element;
     if (testType === TestType.Interactive) {
       rightButton = (
-        <RN.Button
+        <ReactNative.Button
           title="Validate"
           // style={ _styles.button }
           onPress={this._onCompleteInteractiveTest}
         >
-          <RN.Text style={_styles.buttonText}>Validate</RN.Text>
-        </RN.Button>
+          <ReactNative.Text style={_styles.buttonText}>Validate</ReactNative.Text>
+        </ReactNative.Button>
       );
     } else {
       rightButton = (
-        <RN.Button
+        <ReactNative.Button
           title="Run"
           // style={ _styles.button }
           onPress={this._onRunTest}
           disabled={this.state.isTestRunning || testType !== TestType.AutoExecutable}
         >
-          <RN.Text style={_styles.buttonText}>Run</RN.Text>
-        </RN.Button>
+          <ReactNative.Text style={_styles.buttonText}>Run</ReactNative.Text>
+        </ReactNative.Button>
       );
     }
 
@@ -176,34 +176,34 @@ export class TestContainer extends R.Component<TestContainerProps, TestContainer
 
     let testContainer: JSX.Element;
     if (test.useFullScreenContainer) {
-      testContainer = <RN.View style={_styles.fullScreenContainer}>{renderedTest}</RN.View>;
+      testContainer = <ReactNative.View style={_styles.fullScreenContainer}>{renderedTest}</ReactNative.View>;
     } else {
       testContainer = (
-        <RN.ScrollView>
-          <RN.View>{renderedTest}</RN.View>
-        </RN.ScrollView>
+        <ReactNative.ScrollView>
+          <ReactNative.View>{renderedTest}</ReactNative.View>
+        </ReactNative.ScrollView>
       );
     }
 
     return (
-      <RN.View style={_styles.container}>
-        <RN.View style={_styles.header}>
-          <RN.Button
+      <ReactNative.View style={_styles.container}>
+        <ReactNative.View style={_styles.header}>
+          <ReactNative.Button
             title="Back"
             // style={ _styles.button }
             onPress={this._onBack}
             disabled={this.state.isTestRunning}
           >
-            <RN.Text style={_styles.buttonText}>Back</RN.Text>
-          </RN.Button>
-          <RN.Text style={_styles.titleText} numberOfLines={1}>
+            <ReactNative.Text style={_styles.buttonText}>Back</ReactNative.Text>
+          </ReactNative.Button>
+          <ReactNative.Text style={_styles.titleText} numberOfLines={1}>
             {TestRegistry.formatPath(test.getPath())}
-          </RN.Text>
+          </ReactNative.Text>
           {rightButton}
-        </RN.View>
+        </ReactNative.View>
         {optionalResultSection}
         {testContainer}
-      </RN.View>
+      </ReactNative.View>
     );
   }
 

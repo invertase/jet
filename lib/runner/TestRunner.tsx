@@ -2,8 +2,7 @@
  * This file provides a test framework for ReactXP.
  */
 
-import R from 'react';
-import _ from 'lodash';
+import * as React from 'react';
 
 import { TestContainer } from './TestContainer';
 import { TestListView } from './TestListView';
@@ -14,8 +13,8 @@ interface AppState {
   runAll: boolean;
 }
 
-class App extends R.Component<any, AppState> {
-  constructor(props) {
+export class TestRunner extends React.Component<any, AppState> {
+  constructor(props: React.ComponentPropsWithoutRef<any>) {
     super(props);
 
     this.state = {
@@ -24,7 +23,7 @@ class App extends R.Component<any, AppState> {
     };
   }
 
-  render(): R.ReactNode {
+  render(): React.ReactNode {
     if (this.state.selectedTest) {
       return (
         <TestContainer
@@ -41,8 +40,8 @@ class App extends R.Component<any, AppState> {
 
   private _onBack = () => {
     if (this.state.runAll) {
-      const testPaths = _.keys(TestRegistry.getAllTests());
-      const curTestIndex = _.indexOf(testPaths, this.state.selectedTest);
+      const testPaths = Object(TestRegistry.getAllTests()).keys();
+      const curTestIndex = testPaths.indexOf(this.state.selectedTest);
 
       // If there are more tests to run, move on to the next one.
       if (curTestIndex + 1 < testPaths.length) {
@@ -61,10 +60,8 @@ class App extends R.Component<any, AppState> {
   };
 
   private _onRunAll = () => {
-    const firstTest = _.first(_.keys(TestRegistry.getAllTests()));
+    const firstTest = Object.keys(TestRegistry.getAllTests())[0];
 
     this.setState({ runAll: true, selectedTest: firstTest || '' });
   };
 }
-
-export = App;

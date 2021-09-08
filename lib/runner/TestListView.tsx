@@ -1,17 +1,16 @@
 /*
- * A view that includes a list of all tests, allowing the user to
+ *View that includes a list of all tests, allowing the user to
  * select or deselect particular tests and run them.
  */
 
-import R from 'react';
-import RN from 'react-native';
-import _ from 'lodash';
+ import * as React from 'react';
+ import * as ReactNative from 'react-native';
 
 import * as CommonStyles from './CommonStyles';
-import { Test, TestResult, TestType } from './Test';
+import { TestResult, TestType } from './Test';
 import TestRegistry from './TestRegistry';
 
-const _styles = RN.StyleSheet.create({
+const _styles = ReactNative.StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: 'stretch',
@@ -92,17 +91,17 @@ const _styles = RN.StyleSheet.create({
   },
 });
 
-export interface TestListViewProps extends R.ComponentPropsWithoutRef<any> {
+export interface TestLViewProps extends React.ComponentPropsWithoutRef<any> {
   onSelectTest: (path: string) => void;
   onRunAll: () => void;
 }
 
-export interface TestListViewState {
+export interface TestLViewState {
   results?: { [path: string]: TestResult };
 }
 
-export class TestListView extends R.Component<TestListViewProps, TestListViewState> {
-  constructor(props: TestListViewProps) {
+export class TestListView extends React.Component<TestLViewProps, TestLViewState> {
+  constructor(props: TestLViewProps) {
     super(props);
 
     this.state = {
@@ -113,7 +112,8 @@ export class TestListView extends R.Component<TestListViewProps, TestListViewSta
   render() {
     const tests = TestRegistry.getAllTests();
 
-    const testListItems: JSX.Element[] = _.map(tests, (test, path) => {
+    const testListItems: JSX.Element[] = Object.keys(TestRegistry.getAllTests()).map((key) => {
+        const test = tests[key];
       const testPath = test.getPath();
       const testType = test.getTestType();
       const result = TestRegistry.getResult(testPath);
@@ -121,61 +121,71 @@ export class TestListView extends R.Component<TestListViewProps, TestListViewSta
 
       if (!result) {
         resultText = (
-          <RN.Text style={_styles.notRunText} numberOfLines={1}>
+          <ReactNative.Text style={_styles.notRunText} numberOfLines={1}>
             not run
-          </RN.Text>
+          </ReactNative.Text>
         );
       } else if (result.errors.length > 0) {
         resultText = (
-          <RN.Text style={_styles.errorText} numberOfLines={1}>
+          <ReactNative.Text style={_styles.errorText} numberOfLines={1}>
             {result.errors.length + (result.errors.length > 1 ? ' errors' : ' error')}
-          </RN.Text>
+          </ReactNative.Text>
         );
       } else if (testType === TestType.Interactive && !result.userValidated) {
         resultText = (
-          <RN.Text style={_styles.warningText} numberOfLines={1}>
+          <ReactNative.Text style={_styles.warningText} numberOfLines={1}>
             needs validation
-          </RN.Text>
+          </ReactNative.Text>
         );
       } else {
         resultText = (
-          <RN.Text style={_styles.successText} numberOfLines={1}>
+          <ReactNative.Text style={_styles.successText} numberOfLines={1}>
             {testType === TestType.Interactive ? 'validated' : 'success'}
-          </RN.Text>
+          </ReactNative.Text>
         );
       }
 
       return (
-        <RN.View
+        <ReactNative.View
           style={_styles.itemContainer}
-          key={path}
+          key={testPath}
           onTouchStart={() => this._onPressItem(testPath)}
         >
-          <RN.View style={_styles.itemTextContainer}>
-            <RN.Text style={_styles.itemText} numberOfLines={1}>
+          <ReactNative.View style={_styles.itemTextContainer}>
+            <ReactNative.Text style={_styles.itemText} numberOfLines={1}>
               {TestRegistry.formatPath(test.getPath())}
-            </RN.Text>
-            <RN.View style={_styles.resultContainer}>{resultText}</RN.View>
-          </RN.View>
-        </RN.View>
+            </ReactNative.Text>
+            <ReactNative.View style={_styles.resultContainer}>{resultText}</ReactNative.View>
+          </ReactNative.View>
+        </ReactNative.View>
       );
     });
 
     return (
-      <RN.View style={_styles.container}>
-        <RN.View style={_styles.header}>
-          <RN.Text style={_styles.explainText}>Select test to run</RN.Text>
-          <RN.Button
+      <ReactNative.View style={_styles.container}>
+        <ReactNative.View style={_styles.header}>
+          <ReactNative.Text style={_styles.explainText}>Select test to run</ReactNative.Text>
+          <ReactNative.Button
             title="Run All"
             // style={ _styles.button }
 
             onPress={this._runAll}
           >
-            <RN.Text style={_styles.buttonText}>Run All</RN.Text>
-          </RN.Button>
-        </RN.View>
-        <RN.ScrollView style={_styles.scrollView}>{testListItems}</RN.ScrollView>
-      </RN.View>
+            <ReactNative.Text style={_styles.buttonText}>Run All</ReactNative.Text>
+          </ReactNative.Button>
+        </ReactNative.View>
+        {testListItems !== undefined && testListItems.length > 0 && (
+          <ReactNative.ScrollView style={_styles.scrollView}>
+            {testListItems}
+          </ReactNative.ScrollView>
+        )}
+        {(testListItems === undefined || testListItems.length === 0) && (
+          <ReactNative.View>
+            <ReactNative.Text>No tests registered</ReactNative.Text>
+            <ReactNative.Text>Use TestRegistry.registerTest() to register your tests.</ReactNative.Text>
+          </ReactNative.View>
+        )}
+      </ReactNative.View>
     );
   }
 
@@ -183,7 +193,7 @@ export class TestListView extends R.Component<TestListViewProps, TestListViewSta
     this.props.onSelectTest(path);
   }
 
-  private _runAll = (e: RN.NativeSyntheticEvent<any>) => {
+  private _runAll = (e: ReactNative.NativeSyntheticEvent<any>) => {
     this.props.onRunAll();
   };
 }

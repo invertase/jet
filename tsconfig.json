@@ -1,24 +1,17 @@
 {
-  "include": ["packages/**/lib/*.d.ts", "packages/**/type-test.ts"],
+  "include": ["lib/"],
   "compilerOptions": {
-    "noEmit": true,
+    "declaration": true,
     "target": "es5",
     "module": "commonjs",
-    "declaration": true,
-    "importHelpers": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "sourceMap": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "lib": ["es2015", "es2016", "esnext"]
+    "lib": ["es2015", "es2016", "esnext"],
+    "resolveJsonModule": true,
+    "outDir": "./dist/",
   },
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
