@@ -27,25 +27,63 @@
     "testing"
   ],
   "scripts": {
-    "lint": "eslint ./lib",
-    "lint-fix": "eslint --fix ./lib"
+    "precommit": "lint-staged",
+    "lint": "eslint ./lib/runner/* ",
+    "lint-fix": "eslint --fix ./lib/runner/*"
+  },
+  "optionalDependencies": {
+    "detox": "^18.20.3",
+    "mocha": "^9.1.1"
+  },
+  "peerDependencies": {
+    "detox": "^12.5.0",
+    "mocha": "^5.2.0",
+    "react-native": "+"
   },
   "dependencies": {
-    "chalk": "^4.0.0",
-    "error-stack-parser": "^2.0.6",
+    "chalk": "^4.1.2",
+    "error-stack-parser": "^2.0.2",
     "istanbul-lib-coverage": "^3.0.0",
+    "should": "^13.2.1",
+    "should-sinon": "0.0.6",
+    "sinon": "^11.1.2",
     "source-map": "^0.7.3",
     "tinyqueue": "^2.0.3",
-    "ws": "^7.2.3",
-    "util": "^0.12.2"
+    "ws": "^8.2.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.5"
+    "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.15.4",
+    "@types/lodash": "^4.14.172",
+    "@types/react-native": "^0.64.14",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.7.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-native": "^0.66.0-rc.1",
+    "typescript": "^4.4.2"
+  },
+  "lint-staged": {
+    "lib/runner/**/*.[jsx?|tsx?]": [
+      "eslint --fix",
+      "git add"
+    ],
+    "server/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
