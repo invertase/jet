@@ -100,5 +100,6 @@ For now please see the open issues tracking work that needs doing discussions an
 These projects use Jet to test their modules:
 
 - [React Native Firebase](https://github.com/invertase/react-native-firebase): 🔥 A well tested feature rich modular Firebase implementation for React Native. Supports both iOS & Android platforms for over 15 Firebase services.
+- [Notifee](https://github.com/invertase/notifee): ⚛️ A feature rich notifications library for React Native, bringing local notification support to both Android & iOS applications.
 
 Submit a PR to add your project here.
