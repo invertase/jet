@@ -5,7 +5,7 @@ import * as CommonStyles from './CommonStyles';
 import { AutoExecutableTest, TestResult, TestType } from './Test';
 import TestRegistry from './TestRegistry';
 
-const _styles = ReactNative.StyleSheet.create({
+const testContainerStyles = ReactNative.StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: 'stretch',
@@ -105,114 +105,29 @@ export class TestContainer extends React.Component<TestContainerProps, TestConta
     }
   }
 
-  render() {
-    const test = TestRegistry.getTest(this.props.test);
-    const testType = test.getTestType();
-
-    // let testResults: JSX.Element;
-    const result = this.state.result || this.props.prevResult;
-    const resultText: JSX.Element[] = [];
-    if (!result) {
-      resultText.push(
-        <ReactNative.View style={_styles.resultItem} key="notrun">
-          <ReactNative.Text style={_styles.notRunText}>
-            {this.state.isTestRunning ? 'Test is running' : 'Test not run'}
-          </ReactNative.Text>
-        </ReactNative.View>
-      );
-    } else {
-      result.errors.forEach((error, index) => {
-        resultText.push(
-          <ReactNative.View style={_styles.resultItem} key={`error${index}`}>
-            <ReactNative.Text style={_styles.errorText}>{error}</ReactNative.Text>
-          </ReactNative.View>
-        );
-      });
-
-      if (resultText.length === 0) {
-        resultText.push(
-          <ReactNative.View style={_styles.resultItem} key="success">
-            <ReactNative.Text style={_styles.successText}>Test succeeded</ReactNative.Text>
-          </ReactNative.View>
-        );
-      }
-    }
-
-    // Include results if it's not a render-only test.
-    let optionalResultSection: JSX.Element | undefined;
-    if (testType === TestType.AutoExecutable) {
-      optionalResultSection = (
-        <ReactNative.View style={_styles.resultContainer}>
-          <ReactNative.ScrollView style={_styles.resultScrollView}>{resultText}</ReactNative.ScrollView>
-        </ReactNative.View>
-      );
-    }
-
-    let rightButton: JSX.Element;
-    if (testType === TestType.Interactive) {
-      rightButton = (
-        <ReactNative.Button
-          title="Validate"
-          // style={ _styles.button }
-          onPress={this._onCompleteInteractiveTest}
-        >
-          <ReactNative.Text style={_styles.buttonText}>Validate</ReactNative.Text>
-        </ReactNative.Button>
-      );
-    } else {
-      rightButton = (
-        <ReactNative.Button
-          title="Run"
-          // style={ _styles.button }
-          onPress={this._onRunTest}
-          disabled={this.state.isTestRunning || testType !== TestType.AutoExecutable}
-        >
-          <ReactNative.Text style={_styles.buttonText}>Run</ReactNative.Text>
-        </ReactNative.Button>
-      );
-    }
-
-    const renderedTest = test.render(this._onMountTestUI);
-
-    let testContainer: JSX.Element;
-    if (test.useFullScreenContainer) {
-      testContainer = <ReactNative.View style={_styles.fullScreenContainer}>{renderedTest}</ReactNative.View>;
-    } else {
-      testContainer = (
-        <ReactNative.ScrollView>
-          <ReactNative.View>{renderedTest}</ReactNative.View>
-        </ReactNative.ScrollView>
-      );
-    }
-
-    return (
-      <ReactNative.View style={_styles.container}>
-        <ReactNative.View style={_styles.header}>
-          <ReactNative.Button
-            title="Back"
-            // style={ _styles.button }
-            onPress={this._onBack}
-            disabled={this.state.isTestRunning}
-          >
-            <ReactNative.Text style={_styles.buttonText}>Back</ReactNative.Text>
-          </ReactNative.Button>
-          <ReactNative.Text style={_styles.titleText} numberOfLines={1}>
-            {TestRegistry.formatPath(test.getPath())}
-          </ReactNative.Text>
-          {rightButton}
-        </ReactNative.View>
-        {optionalResultSection}
-        {testContainer}
-      </ReactNative.View>
-    );
-  }
-
   private _onBack = () => {
     this.props.onBack();
   };
 
   private _onRunTest = () => {
     this._executeTest();
+  };
+
+  private _onCompleteInteractiveTest = () => {
+    // This should be called only if the test type is interactive.
+    const result = new TestResult();
+    result.userValidated = true;
+    TestRegistry.setResult(this.props.test, result);
+
+    this.props.onBack();
+  };
+
+  private _onMountTestUI = (component: any) => {
+    // Record the mounted component. This will trigger
+    // the test to run if the autoRun prop is set.
+    if (component) {
+      this.setState({ mountedComponent: component });
+    }
   };
 
   private _executeTest() {
@@ -250,20 +165,114 @@ export class TestContainer extends React.Component<TestContainerProps, TestConta
     }
   }
 
-  private _onCompleteInteractiveTest = () => {
-    // This should be called only if the test type is interactive.
-    const result = new TestResult();
-    result.userValidated = true;
-    TestRegistry.setResult(this.props.test, result);
+  render() {
+    const test = TestRegistry.getTest(this.props.test);
+    const testType = test.getTestType();
 
-    this.props.onBack();
-  };
+    // let testResults: JSX.Element;
+    const result = this.state.result || this.props.prevResult;
+    const resultText: JSX.Element[] = [];
+    if (!result) {
+      resultText.push(
+        <ReactNative.View style={testContainerStyles.resultItem} key="notrun">
+          <ReactNative.Text style={testContainerStyles.notRunText}>
+            {this.state.isTestRunning ? 'Test is running' : 'Test not run'}
+          </ReactNative.Text>
+        </ReactNative.View>
+      );
+    } else {
+      result.errors.forEach((error, index) => {
+        resultText.push(
+          // eslint-disable-next-line react/no-array-index-key
+          <ReactNative.View style={testContainerStyles.resultItem} key={`error${index}`}>
+            <ReactNative.Text style={testContainerStyles.errorText}>{error}</ReactNative.Text>
+          </ReactNative.View>
+        );
+      });
 
-  private _onMountTestUI = (component: any) => {
-    // Record the mounted component. This will trigger
-    // the test to run if the autoRun prop is set.
-    if (component) {
-      this.setState({ mountedComponent: component });
+      if (resultText.length === 0) {
+        resultText.push(
+          <ReactNative.View style={testContainerStyles.resultItem} key="success">
+            <ReactNative.Text style={testContainerStyles.successText}>
+              Test succeeded
+            </ReactNative.Text>
+          </ReactNative.View>
+        );
+      }
     }
-  };
+
+    // Include results if it's not a render-only test.
+    let optionalResultSection: JSX.Element | undefined;
+    if (testType === TestType.AutoExecutable) {
+      optionalResultSection = (
+        <ReactNative.View style={testContainerStyles.resultContainer}>
+          <ReactNative.ScrollView style={testContainerStyles.resultScrollView}>
+            {resultText}
+          </ReactNative.ScrollView>
+        </ReactNative.View>
+      );
+    }
+
+    let rightButton: JSX.Element;
+    if (testType === TestType.Interactive) {
+      rightButton = (
+        <ReactNative.Button
+          title="Validate"
+          // style={ _styles.button }
+          onPress={this._onCompleteInteractiveTest}
+        >
+          <ReactNative.Text style={testContainerStyles.buttonText}>Validate</ReactNative.Text>
+        </ReactNative.Button>
+      );
+    } else {
+      rightButton = (
+        <ReactNative.Button
+          title="Run"
+          // style={ _styles.button }
+          onPress={this._onRunTest}
+          disabled={this.state.isTestRunning || testType !== TestType.AutoExecutable}
+        >
+          <ReactNative.Text style={testContainerStyles.buttonText}>Run</ReactNative.Text>
+        </ReactNative.Button>
+      );
+    }
+
+    const renderedTest = test.render(this._onMountTestUI);
+
+    let testContainer: JSX.Element;
+    if (test.useFullScreenContainer) {
+      testContainer = (
+        <ReactNative.View style={testContainerStyles.fullScreenContainer}>
+          {renderedTest}
+        </ReactNative.View>
+      );
+    } else {
+      testContainer = (
+        <ReactNative.ScrollView>
+          <ReactNative.View>{renderedTest}</ReactNative.View>
+        </ReactNative.ScrollView>
+      );
+    }
+
+    return (
+      <ReactNative.View style={testContainerStyles.container}>
+        <ReactNative.View style={testContainerStyles.header}>
+          <ReactNative.Button
+            title="Back"
+            // style={ _styles.button }
+            onPress={this._onBack}
+            disabled={this.state.isTestRunning}
+          >
+            <ReactNative.Text style={testContainerStyles.buttonText}>Back</ReactNative.Text>
+          </ReactNative.Button>
+          <ReactNative.Text style={testContainerStyles.titleText} numberOfLines={1}>
+            {TestRegistry.formatPath(test.getPath())}
+          </ReactNative.Text>
+          {rightButton}
+        </ReactNative.View>
+        {optionalResultSection}
+        {testContainer}
+      </ReactNative.View>
+    );
+  }
 }

@@ -1,6 +1,9 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "airbnb-typescript", "prettier"],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "plugins": ["prettier"],
   "env": {
     "es6": true,
@@ -14,6 +17,7 @@
         "singleQuote": true
       }
     ],
+    "react/destructuring-assignment": "off",
     "react/forbid-prop-types": "warn",
     "react/jsx-filename-extension": [
       "off",

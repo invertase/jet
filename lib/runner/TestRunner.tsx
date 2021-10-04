@@ -13,7 +13,7 @@ interface AppState {
   runAll: boolean;
 }
 
-export class TestRunner extends React.Component<any, AppState> {
+class TestRunner extends React.Component<any, AppState> {
   constructor(props: React.ComponentPropsWithoutRef<any>) {
     super(props);
 
@@ -21,21 +21,6 @@ export class TestRunner extends React.Component<any, AppState> {
       selectedTest: '',
       runAll: false,
     };
-  }
-
-  render(): React.ReactNode {
-    if (this.state.selectedTest) {
-      return (
-        <TestContainer
-          key={this.state.selectedTest}
-          test={this.state.selectedTest}
-          prevResult={TestRegistry.getResult(this.state.selectedTest)}
-          autoRun={this.state.runAll}
-          onBack={this._onBack}
-        />
-      );
-    }
-    return <TestListView onSelectTest={this._onSelectTest} onRunAll={this._onRunAll} />;
   }
 
   private _onBack = () => {
@@ -64,4 +49,21 @@ export class TestRunner extends React.Component<any, AppState> {
 
     this.setState({ runAll: true, selectedTest: firstTest || '' });
   };
+
+  render(): React.ReactNode {
+    if (this.state.selectedTest) {
+      return (
+        <TestContainer
+          key={this.state.selectedTest}
+          test={this.state.selectedTest}
+          prevResult={TestRegistry.getResult(this.state.selectedTest)}
+          autoRun={this.state.runAll}
+          onBack={this._onBack}
+        />
+      );
+    }
+    return <TestListView onSelectTest={this._onSelectTest} onRunAll={this._onRunAll} />;
+  }
 }
+
+export default TestRunner;

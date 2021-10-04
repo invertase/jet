@@ -12,10 +12,10 @@ class TestRegistry {
 
   private _results: { [path: string]: TestResult } = {};
 
-  constructor() {
-    // tests imported above were then registered here like:
-    // this.registerTest(AccessibilityTest);
-  }
+  // constructor() {
+  // tests imported above were then registered here like:
+  // this.registerTest(AccessibilityTest);
+  // }
 
   registerTest(test: Test) {
     this._tests[test.getPath()] = test;
