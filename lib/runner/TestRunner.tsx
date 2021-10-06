@@ -25,7 +25,7 @@ class TestRunner extends React.Component<any, AppState> {
 
   private _onBack = () => {
     if (this.state.runAll) {
-      const testPaths = Object(TestRegistry.getAllTests()).keys();
+      const testPaths = Object.keys(TestRegistry.getAllTests());
       const curTestIndex = testPaths.indexOf(this.state.selectedTest);
 
       // If there are more tests to run, move on to the next one.
