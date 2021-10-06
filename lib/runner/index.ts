@@ -1,4 +1,4 @@
-export { AutoExecutableTest, Test } from './Test';
+export { AutoExecutableTest, Test, TestResult, TestType } from './Test';
 export { TestContainer } from './TestContainer';
 export { TestListView } from './TestListView';
 export { default as TestRunner } from './TestRunner';
