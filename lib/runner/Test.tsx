@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 
-export const enum TestType {
+export enum TestType {
   // The test needs to be executed but requires no user interaction or validation
   AutoExecutable,
 
