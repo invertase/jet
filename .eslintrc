@@ -1,49 +1,22 @@
 {
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
   "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    "plugin:prettier/recommended" // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
-  "parser": "babel-eslint",
-  "plugins": [
-    "flowtype",
-    "prettier"
-  ],
-  "env": {
-    "es6": true,
-    "jasmine": true
+  "parserOptions": {
+    "ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module" // Allows for the use of imports
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true
-      }
-    ],
-    "react/forbid-prop-types": "warn",
-    "react/jsx-filename-extension": [
-      "off",
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ],
-    "class-methods-use-this": 0,
-    "no-console": 0,
-    "no-plusplus": 0,
-    "no-undef": 0,
-    "no-underscore-dangle": "off",
-    "no-use-before-define": 0
-  },
-  "globals": {
-    "jet": true,
-    "sinon": true,
-    "should": true,
-    "window": true,
-    "__DEV__": true
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-param-reassign": "off"
   }
 }

@@ -4,6 +4,8 @@
 
 static NSString *const kRCTDevSettingIsDebuggingRemotely = @"isDebuggingRemotely";
 static NSString *const kRCTDevSettingsUserDefaultsKey = @"RCTDevMenu";
+static NSString *const kRCTDevSettingHotLoadingEnabled = @"hotLoadingEnabled";
+
 
 @implementation Jet
 
@@ -21,6 +23,7 @@ RCT_EXPORT_METHOD(debug:(BOOL)value) {
     NSDictionary *existingSettings = [[NSUserDefaults standardUserDefaults] objectForKey:kRCTDevSettingsUserDefaultsKey];
     NSMutableDictionary *_settings = existingSettings ? [existingSettings mutableCopy] : [NSMutableDictionary dictionary];
     _settings[kRCTDevSettingIsDebuggingRemotely] = @(value);
+    _settings[kRCTDevSettingHotLoadingEnabled] = @(NO);
     [[NSUserDefaults standardUserDefaults] setObject:_settings forKey:kRCTDevSettingsUserDefaultsKey];
     _bridge.executorClass = value ? objc_getClass("RCTWebSocketExecutor") : nil;
   });
