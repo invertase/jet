@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.8.0
+
+- forward-port to Detox v18, this may be a breaking change, stay on jet v7 if you need Detox < v17
+
 ## v0.7.0
 
 - remaps backslashes in module names on windows so `jet.require()` works
