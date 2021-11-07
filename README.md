@@ -29,7 +29,7 @@ Detox provides all the functionality you'll need to control your testing app, de
 
 > Latest supported React Native version: **^0.67.0-rc.2**
 
-> Latest supported Detox version: **^17**
+> Supported Detox version: **^18** (for Detox < v18 use jet < v0.7.x)
 
 ---
 
