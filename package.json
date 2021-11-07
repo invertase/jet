@@ -1,6 +1,6 @@
 {
   "name": "jet",
-  "version": "0.6.2-0",
+  "version": "0.6.3-0",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
   "author": {
     "name": "Mike Diarmid",
