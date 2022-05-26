@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.8.1
+
+- forward-port to react-native 0.69 (podspec in root)
+- support static framework build (required for firebase-ios-sdk v9)
+- various package.json / podspec fixups
+
 ## v0.8.0
 
 - forward-port to Detox v18, this may be a breaking change, stay on jet v7 if you need Detox < v17
