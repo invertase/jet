@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                           DESC
   s.homepage            = "http://invertase.io/jet"
   s.license             = package['license']
-  s.authors             = "Mike Diarmid (Salakar)"
+  s.authors             = package['author']
   s.source              = { :git => "https://github.com/invertase/jet.git", :tag => "v#{s.version}" }
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.platform            = :ios, "9.0"
