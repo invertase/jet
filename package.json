@@ -25,7 +25,8 @@
   ],
   "scripts": {
     "lint": "eslint ./lib",
-    "lint-fix": "eslint --fix ./lib"
+    "lint-fix": "eslint --fix ./lib",
+    "test": "npm run lint"
   },
   "dependencies": {
     "chalk": "^4.0.0",
