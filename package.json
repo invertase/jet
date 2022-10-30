@@ -1,6 +1,6 @@
 {
   "name": "jet",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "license": "Apache-2.0",
@@ -34,8 +34,8 @@
     "istanbul-lib-coverage": "^3.0.0",
     "source-map": "^0.7.3",
     "tinyqueue": "^2.0.3",
-    "ws": "^7.2.3",
-    "util": "^0.12.2"
+    "util": "^0.12.2",
+    "ws": "^7.2.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.18.0",
