@@ -5,7 +5,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.5.1'
+    classpath 'com.android.tools.build:gradle:7.3.1'
   }
 }
 
@@ -15,24 +15,23 @@ def safeExtGet(prop, fallback) {
 
 allprojects {
   repositories {
-    google()
-    jcenter()
     maven {
       // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
       url "$rootDir/../node_modules/react-native/android"
     }
-    mavenLocal()
+    mavenCentral()
+    google()
   }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 29)
+  compileSdkVersion safeExtGet('compileSdkVersion', 31)
 
   defaultConfig {
     minSdkVersion safeExtGet('minSdkVersion', 18)
-    targetSdkVersion safeExtGet('targetSdkVersion', 29)
+    targetSdkVersion safeExtGet('targetSdkVersion', 31)
     versionCode 1
     versionName "1.0"
   }

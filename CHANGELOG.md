@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.8.2
+
+- remove jcenter from list of android dependencies
+- bump android versions to current react-native template values
+
 ## v0.8.1
 
 - forward-port to react-native 0.69 (podspec in root)
