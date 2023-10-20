@@ -31,11 +31,11 @@ android {
   if (agpVersion >= 7) {
     namespace "io.invertase.jet"
   }
-  compileSdkVersion safeExtGet('compileSdkVersion', 31)
+  compileSdkVersion safeExtGet('compileSdkVersion', 34)
 
   defaultConfig {
     minSdkVersion safeExtGet('minSdkVersion', 18)
-    targetSdkVersion safeExtGet('targetSdkVersion', 31)
+    targetSdkVersion safeExtGet('targetSdkVersion', 34)
     versionCode 1
     versionName "1.0"
   }
