@@ -1,6 +1,6 @@
 {
   "name": "jet",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "license": "Apache-2.0",
