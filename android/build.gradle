@@ -27,6 +27,10 @@ allprojects {
 apply plugin: 'com.android.library'
 
 android {
+  def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger()
+  if (agpVersion >= 7) {
+    namespace "io.invertase.jet"
+  }
   compileSdkVersion safeExtGet('compileSdkVersion', 31)
 
   defaultConfig {
