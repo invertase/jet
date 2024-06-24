@@ -25,6 +25,7 @@ jobs:
 
   test:
     runs-on: macos-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,9 +33,23 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
+      - name: Start Metro Bundler
+        continue-on-error: true
+        working-directory: ./example
+        run: nohup sh -c "yarn start > metro.log 2>&1 &"
+
       - name: Run unit tests
         working-directory: ./example
-        run: jet --target=macos --coverage 
+        # TODO nyc breaks xcodebuild
+        # run: jet --target=macos --coverage
+        run: jet --target=macos
+
+      - name: Upload Metro Log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: metro_log
+          path: metro.log
 
   build-library:
     runs-on: ubuntu-latest

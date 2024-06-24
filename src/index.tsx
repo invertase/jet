@@ -137,7 +137,7 @@ export function JetProvider(props: JetProviderProps): React.JSX.Element {
     return () => {
       client.disconnect();
     };
-  }, [setStatus, setConfig, setConnected]);
+  }, [setStatus, setConfig, props]);
 
   return (
     <JetContext.Provider

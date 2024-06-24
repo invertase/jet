@@ -20,8 +20,8 @@ Jet lets you test your React Native Module APIs in JS mock free and native testi
 **Features:**
 
 - ⏩ Test with JavaScript - write your native module tests in javascript and fully e2e test them.
-- 💯 Coverage - get full code coverage output for your React Native module's JS API with built in [istanbul/nyc](https://github.com/istanbuljs/nyc) coverage support (`--coverage`).
--
+- 💯 Coverage - get full code coverage output for your React Native module's JS API with built in coverage support (`--coverage`).
+
 
 ![image](https://github.com/invertase/jet/assets/5347038/d0ca2c5b-7eee-48bb-94b5-21881455142d)
 

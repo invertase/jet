@@ -17,7 +17,7 @@ ErrorUtils.setGlobalHandler((err, isFatal) => {
   throw err;
 });
 
-function loadTests(config: JetConfig) {
+function loadTests(_: JetConfig) {
   const tests = (require as any).context('./e2e', true, /\.jet\.ts$/);
   tests.keys().forEach(tests);
 }

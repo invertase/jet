@@ -10,6 +10,7 @@ describe('test suite example', () => {
   });
 });
 
+/* eslint-disable jest/no-disabled-tests */
 it.skip('test skipping example', () => {
   return new Promise(resolve => setTimeout(resolve, 50));
 });
