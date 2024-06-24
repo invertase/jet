@@ -24,7 +24,7 @@ jobs:
         run: yarn typecheck
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,7 +33,8 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run unit tests
-        run: yarn test --maxWorkers=2 --coverage
+        working-directory: ./example
+        run: jet --target=macos --coverage 
 
   build-library:
     runs-on: ubuntu-latest

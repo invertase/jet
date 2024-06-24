@@ -23,8 +23,11 @@ runs:
 
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
+      env:
+        YARN_ENABLE_IMMUTABLE_INSTALLS: false
       run: |
         yarn
+        npm link
         cd example
         yarn
       shell: bash

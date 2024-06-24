@@ -6232,7 +6232,7 @@ __metadata:
     babel-jest: ^29.6.3
     eslint: ^8.19.0
     jest: ^29.6.3
-    jet: 0.9.0-dev.8
+    jet: "file:../"
     prettier: 2.8.8
     react: 18.2.0
     react-native: 0.74.2
@@ -7189,9 +7189,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jet@npm:0.9.0-dev.8":
+"jet@file:../::locator=io.invertase.testing%40workspace%3A.":
   version: 0.9.0-dev.8
-  resolution: "jet@npm:0.9.0-dev.8"
+  resolution: "jet@file:../#../::hash=1ab396&locator=io.invertase.testing%40workspace%3A."
   dependencies:
     "@types/mocha": ^10.0.6
     babel-plugin-istanbul: ^6.1.1
@@ -7207,8 +7207,8 @@ __metadata:
     react: "*"
     react-native: "*"
   bin:
-    jet: jet.js
-  checksum: ad5815927bf1e32b6cbf1dafcfbf25e1d80ab43a6221453e2e52d8e5e4ee5a55ae28cb0fada48811d969208a6ca8affef6fa0446439069cc9edf5d474a12728f
+    jet: ./jet.js
+  checksum: a54cc8452959618b9c0bbfc00744783015a3bdae0c7036818386eeefa8fec0a86320a58ae0d2c552d27fd1ee2a192a14759d763d2bfa095a6e01d4c6c06d8274
   languageName: node
   linkType: hard
 
