@@ -1,49 +1,141 @@
 {
   "name": "jet",
-  "version": "0.8.3",
-  "description": "Bring your React Native JS code into Node.js and test it mock-free and native code free. Perfect for React Native module developers wanting full CI.",
-  "author": "Invertase <oss@invertase.io> (http://invertase.io)",
-  "license": "Apache-2.0",
-  "main": "./lib/node",
-  "react-native": "./lib/react-native",
+  "version": "0.9.0-dev.8",
+  "description": "Jet lets you test your React Native Module APIs in JS mock free and native testing code free - ideal for testing React Native modules e2e.",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "*.podspec",
+    "!ios/build",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/.*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "clean": "del-cli lib",
+    "prepare": "bob build",
+    "release": "release-it"
+  },
   "keywords": [
     "react-native",
     "react native module",
-    "detox",
-    "debugger",
     "mocha",
     "coverage",
-    "node",
-    "nodejs",
-    "protocol",
-    "batched bridge",
     "istanbul",
     "ci",
+    "e2e",
     "integration",
     "test",
     "testing"
   ],
-  "scripts": {
-    "lint": "eslint ./lib",
-    "lint-fix": "eslint --fix ./lib",
-    "test": "npm run lint"
+  "bin": "./jet.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invertase/jet.git"
   },
-  "dependencies": {
-    "chalk": "^4.0.0",
-    "error-stack-parser": "^2.0.6",
-    "istanbul-lib-coverage": "^3.0.0",
-    "source-map": "^0.7.3",
-    "tinyqueue": "^2.0.3",
-    "util": "^0.12.2",
-    "ws": "^7.2.3"
+  "author": "Invertase <oss@invertase.io> (https://invertase.io)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/invertase/jet/issues"
+  },
+  "homepage": "https://github.com/invertase/jet#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
+    "@react-native/eslint-config": "^0.73.1",
+    "@types/react": "^18.2.44",
+    "commitlint": "^17.0.2",
+    "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.0.3",
+    "react": "18.2.0",
+    "react-native": "0.74.2",
+    "react-native-builder-bob": "^0.23.2",
+    "release-it": "^15.0.0",
     "typescript": "^5.2.2"
+  },
+  "resolutions": {
+    "@types/react": "^18.2.44"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "packageManager": "yarn@3.6.1",
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@types/mocha": "^10.0.6",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cosmiconfig": "^9.0.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "mocha": "^10.3.0",
+    "mocha-remote-client": "^1.12.2",
+    "mocha-remote-server": "^1.12.2",
+    "nyc": "^17.0.0",
+    "yargs": "^17.7.2",
+    "zod": "^3.23.8"
   }
 }
