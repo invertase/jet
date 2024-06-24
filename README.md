@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://invertase.io">
-    <img height="256" src="https://static.invertase.io/assets/jet.png"><br/>
+    <img height="180" src="https://static.invertase.io/assets/jet.png"><br/>
   </a>
   <h2 align="center">Jet</h2>
 </p>
@@ -13,79 +13,91 @@
   <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
-> **WARNING:** Jet uses a feature of react-native called "Javascript Debugging" which relies on the bundle downloading to a local execution environment and executing there, with the results / requests passed asynchronously via WebSocket to the app running on the device. This method of react-native bundle execution will not be available in some unknown future version of react-native so the premise of the module will change completely. This is being worked on in the @mikehardy/jet-next branch.
+---
 
-> This repo is in development and does not have a full release version yet. v0.4.x is the latest stable version in it's current form - this works on Android & iOS on React Native ^0.56 through ^0.67 and Detox ^10.0.13 through ^18.
+Jet lets you test your React Native Module APIs in JS mock free and native testing code free - ideal for testing React Native modules e2e.
+
+**Features:**
+
+- ⏩ Test with JavaScript - write your native module tests in javascript and fully e2e test them.
+- 💯 Coverage - get full code coverage output for your React Native module's JS API with built in coverage support (`--coverage`).
+
+
+![image](https://github.com/invertase/jet/assets/5347038/d0ca2c5b-7eee-48bb-94b5-21881455142d)
 
 ---
 
-Jet lets you bring your React Native JS code into NodeJS and test it mock free and native testing code free - ideal for testing React Native modules e2e.
-
-Jet extends upon [`wix/detox`](https://github.com/wix/detox) and by default the [Mocha testing framework](https://mochajs.org/).
-
-Detox provides all the functionality you'll need to control your testing app, device and it's UI (if you have one) whilst Jet allows JS code execution in the context of your RN app via Node.js - giving you full access to all the Native api's as you would have inside your app.
+> Latest supported React Native version: **^0.74**
 
 ---
-
-> Latest supported React Native version: **^0.67.0-rc.2**
-
-> Supported Detox version: **^18** (for Detox < v18 use jet < v0.7.x)
-
----
-
-## Features
-
-### ⏩ Test with JavaScript
-
-Your test suites and your React Native code run inside NodeJS - making testing your modules with NodeJS testing frameworks (Mocha only currently, to be replaced with Jest) possible.
-
-![test suite](https://static.invertase.io/assets/jet/tests-1.gif)
-
-### 🐞 Debugging
-
-Supports debugging your test suites and your React Native JS bundle using the standard NodeJS debugger protocol.
-
-![debugging](https://static.invertase.io/assets/jet/debugging.gif)
-
-### 💯 Coverage
-
-Get full code coverage output for your React Native module's JS API using [istanbul/nyc](https://github.com/istanbuljs/nyc) coverage tools.
-
-![coverage](https://static.invertase.io/assets/jet/coverage.png)
-
-### ☕️ Full Detox API support
-
-Supports the full [Detox API](https://github.com/wix/detox/blob/master/docs/README.md#api-reference); reloading or relaunching your app automatically reconnects to your React Native JS bundle.
-
-![detox](https://static.invertase.io/assets/jet/detox.png)
-
-### ✨ Full access to React Native bundle context
-
-Jet gives you full access to the JS context of your React Native app inside NodeJS ⚡️.
 
 ## Quick Setup
 
-```
-$ yarn add jet
-```
-
-```
-$ react-native link jet
+```sh
+yarn add jet@0.9.0-dev.9
 ```
 
-in your mocha.opts add
+These docs are still TODO, for now see [example](./example), in particular:
 
-```
---require jet/platform/node
+Configuring Jet and targets:
+
+- [.jetrc.js](./example/.jetrc.js)
+
+Adding the test UI and your tests:
+
+- [App.tsx](./example/App.tsx)
+
+Configuring coverage instrumentation:
+
+- [babel.config.js](./example/babel.config.js)
+- [nyc.config.js](./example/nyc.config.js)
+
+### Running tests
+
+```sh
+jet --target=macos
 ```
 
-You can update your package.json scripts with a task for packager-jet:
+### `.jetrc.js`
 
-```
-"packager-jet": "REACT_DEBUGGER='echo nope' react-native start",
-```
+Example:
 
-Before starting your tests launch the packager-jet and afterwards start your detox tests.
+```js
+const proc = require('node:child_process');
+
+module.exports = {
+  config: {
+    // Global config overrides/defaults...
+  },
+  targets: {
+    // Use any key name to specify a new 'target' (--target=<key>)
+    // [key: string]: { ... }
+    macos: {
+      // --target=macos
+      config: {
+        // Per target config overrides...
+        // These will override in order of:
+        // ...cliFlags
+        // ...globalConfig
+        // ...targetConfig
+      },
+      /**
+       * Use this to run builds, start the application etc.
+       */
+      async before(config) {
+        proc.spawnSync('npx', ['react-native', 'run-macos']);
+        return config;
+      },
+      /**
+       * Use this for cleanup & teardown.
+       */
+      async after(config) {
+        console.log('After');
+      },
+    },
+  },
+};
+```
 
 ## 💛 How can I help?
 
