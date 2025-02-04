@@ -60,16 +60,18 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@react-native/eslint-config": "^0.73.1",
+    "@react-native/babel-preset": "^0.74.89",
+    "@react-native/eslint-config": "^0.73.2",
     "@types/react": "^18.3.18",
-    "del-cli": "^5.1.0",
-    "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.1.0",
+    "del-cli": "^6.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-ft-flow": "^3.0.11",
     "eslint-plugin-prettier": "^5.2.3",
     "prettier": "^3.4.2",
     "react": "18.3.1",
     "react-native": "0.74.7",
-    "react-native-builder-bob": "^0.23.2",
+    "react-native-builder-bob": "^0.36.0",
     "release-it": "^18.1.2",
     "typescript": "^5.7.3"
   },
@@ -141,12 +143,15 @@
       "autoGenerate": true
     }
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@types/mocha": "^10.0.10",
-    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-istanbul": "^7.0.0",
     "cosmiconfig": "^9.0.0",
     "istanbul-lib-coverage": "^3.2.2",
-    "mocha": "^10.8.2",
+    "mocha": "^11.1.0",
     "mocha-remote-client": "^1.13.0",
     "mocha-remote-server": "^1.13.0",
     "nyc": "^17.1.0",
