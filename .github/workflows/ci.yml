@@ -42,7 +42,7 @@ jobs:
         working-directory: ./example
         # TODO nyc breaks xcodebuild
         # run: jet --target=macos --coverage
-        run: jet --target=macos
+        run: npx jet --target=macos
 
       - name: Upload Metro Log
         uses: actions/upload-artifact@v4
