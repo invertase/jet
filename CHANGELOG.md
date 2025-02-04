@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.9.0-dev series
+
+- rework to no longer need react-native JSI debugging interface which disappears with new architecture
+
 ## v0.8.2
 
 - remove jcenter from list of android dependencies
