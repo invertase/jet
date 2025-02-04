@@ -53,7 +53,7 @@ jobs:
         if: always()
         with:
           name: metro_log
-          path: metro.log
+          path: example/metro.log
 
   build-library:
     runs-on: ubuntu-latest
