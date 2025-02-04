@@ -29,4 +29,6 @@ runs:
         yarn
         cd example
         yarn
+        cd macos
+        pod install
       shell: bash
