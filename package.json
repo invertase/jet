@@ -1,6 +1,6 @@
 {
   "name": "jet",
-  "version": "0.9.0-dev.12",
+  "version": "0.9.0-dev.13",
   "description": "Jet lets you test your React Native Module APIs in JS mock free and native testing code free - ideal for testing React Native modules e2e.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
