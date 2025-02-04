@@ -25,7 +25,7 @@ jobs:
 
   test:
     runs-on: macos-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,7 +42,11 @@ jobs:
         working-directory: ./example
         # TODO nyc breaks xcodebuild
         # run: jet --target=macos --coverage
-        run: npx jet --target=macos
+        run: |
+          cd macos
+          pod install
+          cd ..
+          npx jet --target=macos
 
       - name: Upload Metro Log
         uses: actions/upload-artifact@v4

@@ -28,9 +28,4 @@ runs:
       run: |
         yarn
         yarn example:install
-        cd example
-        bundle install
-        yarn
-        cd macos
-        pod install
       shell: bash
