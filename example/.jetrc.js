@@ -20,10 +20,10 @@ module.exports = {
        */
       async before(config) {
         const process = proc.spawnSync('npx', ['react-native', 'run-macos']);
-        if (process.exitCode !== 0) {
+        if (process.error) {
           console.log(process.stdout.toString());
           console.log(process.stderr.toString());
-          throw new Error('Failed to build macos.');
+          throw new Error(`Failed to build macos. Error: ${process.error}`);
         }
         return config;
       },
