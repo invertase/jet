@@ -27,6 +27,7 @@ runs:
         YARN_ENABLE_IMMUTABLE_INSTALLS: false
       run: |
         yarn
+        yarn example:install
         cd example
         yarn
         cd macos

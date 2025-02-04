@@ -14,6 +14,7 @@
     "ios",
     "cpp",
     "*.podspec",
+    "!package.tgz",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -30,8 +31,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
-    "prepare": "bob build",
-    "release": "yarn prepare && yarn test && yarn lint && yarn typecheck && yarn release-it"
+    "build": "bob build",
+    "example:install": "yarn build && yarn pack && cd example && yarn",
+    "release": "yarn build && yarn test && yarn lint && yarn typecheck && yarn release-it"
   },
   "keywords": [
     "react-native",

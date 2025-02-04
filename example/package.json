@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "jet": "file:../",
+    "jet": "file:../package.tgz",
     "react": "18.3.1",
     "react-native": "0.76.5",
     "react-native-macos": "0.76.5"
