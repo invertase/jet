@@ -60,8 +60,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@react-native/babel-preset": "^0.74.89",
-    "@react-native/eslint-config": "^0.73.2",
+    "@react-native/babel-preset": "^0.76.6",
+    "@react-native/eslint-config": "^0.76.6",
     "@types/react": "^18.3.18",
     "del-cli": "^6.0.0",
     "eslint": "^8.57.1",
@@ -70,7 +70,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "prettier": "^3.4.2",
     "react": "18.3.1",
-    "react-native": "0.74.7",
+    "react-native": "0.76.6",
     "react-native-builder-bob": "^0.36.0",
     "release-it": "^18.1.2",
     "typescript": "^5.7.3"
@@ -87,6 +87,9 @@
     "root": true,
     "extends": [
       "@react-native",
+      "prettier"
+    ],
+    "plugins": [
       "prettier"
     ],
     "rules": {

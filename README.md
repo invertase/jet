@@ -27,7 +27,7 @@ Jet lets you test your React Native Module APIs in JS mock free and native testi
 
 ---
 
-> Latest supported React Native version: **^0.74**
+> Latest supported React Native version: **^0.76**
 
 ---
 
