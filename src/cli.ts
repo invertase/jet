@@ -74,7 +74,12 @@ function parseKeyValues(opts: string[]): { [key: string]: string | true } {
 
 type CleanupTask = () => void | Promise<void>;
 const cleanupTasks = new Set<CleanupTask>();
+let cleanedUp = false;
 function cleanup() {
+  if (cleanedUp) {
+    return;
+  }
+  cleanedUp = true;
   const tasks = [...cleanupTasks];
   cleanupTasks.clear();
   tasks
@@ -362,8 +367,9 @@ yargs(hideBin(process.argv))
           attachHttpServer((server as any).wss);
         }
         if (!finalConfig.watch) {
-          server.run((failures) => {
+          server.run(async (failures) => {
             (global as any).__coverage__ = coverageMap.toJSON();
+            await cleanup();
             process.exit(failures > 0 ? 1 : 0);
           });
         }
