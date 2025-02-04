@@ -137,8 +137,7 @@ export function JetProvider(props: JetProviderProps): React.JSX.Element {
     return () => {
       client.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setStatus, setConfig, setConnected]);
+  }, [props, setStatus, setConfig, setConnected]);
 
   return (
     <JetContext.Provider

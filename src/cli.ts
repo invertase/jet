@@ -94,9 +94,8 @@ async function startServer(
   config: z.infer<typeof JetConfigSchema>,
   after: z.infer<typeof JetAfterHook>
 ): Promise<void> {
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  server.on('started', (server) => {
-    const url = server.url;
+  server.on('started', (s) => {
+    const url = s.url;
     console.log(`[🟩] Jet remote server listening at "${url}".`);
   });
 
