@@ -126,6 +126,22 @@
       ]
     ]
   },
+  "release-it": {
+    "npm": {
+      "publish": true,
+      "tag": "latest"
+    },
+    "git": {
+      "commit": true,
+      "tag": true,
+      "push": true
+    },
+    "github": {
+      "release": true,
+      "web": true,
+      "autoGenerate": true
+    }
+  },
   "dependencies": {
     "@types/mocha": "^10.0.6",
     "babel-plugin-istanbul": "^6.1.1",
