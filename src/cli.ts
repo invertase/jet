@@ -89,8 +89,8 @@ async function startServer(
   config: z.infer<typeof JetConfigSchema>,
   after: z.infer<typeof JetAfterHook>
 ): Promise<void> {
-  server.on('started', (event) => {
-    const url = event.url;
+  server.on('started', (server) => {
+    const url = server.url;
     console.log(`[🟩] Jet remote server listening at "${url}".`);
   });
 
@@ -328,6 +328,11 @@ yargs(hideBin(process.argv))
       console.log('[🚀] Starting tests...');
       console.log('[🧼] Filter (--grep):', argv.grep || 'none');
       console.log('[🔄] Invert filters:', argv.invert);
+      if (!(await isMetroRunning(argv.metroPort))) {
+        console.warn(
+          `[🟨] Metro is not running (${argv.metroPort} via '--metro-port' flag.). Start it before tests to enable stack trace symbolication.`
+        );
+      }
       console.log('[🪝] Running before hook...');
       const beforeHookReturnedConfig = await target.before?.(mergedConfig);
       if (!beforeHookReturnedConfig) {
@@ -335,11 +340,6 @@ yargs(hideBin(process.argv))
           `[🟥] Before hook on target "${argv.target}" must return a config object.`
         );
         process.exit(1);
-      }
-      if (!(await isMetroRunning(argv.metroPort))) {
-        console.warn(
-          `[🟨] Metro is not running (${argv.metroPort} via '--metro-port' flag.). Start it before tests to enable stack trace symbolication.`
-        );
       }
       const finalConfig = JetConfigSchema.parse(beforeHookReturnedConfig)!;
       const server = new Server({

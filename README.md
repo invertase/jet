@@ -34,7 +34,7 @@ Jet lets you test your React Native Module APIs in JS mock free and native testi
 ## Quick Setup
 
 ```sh
-yarn add jet@0.9.0-dev.9
+yarn add jet@0.9.0-dev.10
 ```
 
 These docs are still TODO, for now see [example](./example), in particular:

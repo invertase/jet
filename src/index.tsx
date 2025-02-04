@@ -80,7 +80,7 @@ export function JetProvider(props: JetProviderProps): React.JSX.Element {
         beforeEach('async-pause', () => {
           return new Promise<void>((resolve) => setImmediate(resolve));
         });
-        afterEach(async () => {
+        after(async () => {
           if (_config.coverage) {
             const coverage = (global as any).__coverage__ ?? {};
             const url =
@@ -137,7 +137,7 @@ export function JetProvider(props: JetProviderProps): React.JSX.Element {
     return () => {
       client.disconnect();
     };
-  }, [setStatus, setConfig, props]);
+  }, [setStatus, setConfig, setConnected]);
 
   return (
     <JetContext.Provider
