@@ -61,18 +61,18 @@
   },
   "devDependencies": {
     "@react-native/eslint-config": "^0.73.1",
-    "@types/react": "^18.2.44",
-    "commitlint": "^17.0.2",
+    "@types/react": "^18.3.18",
+    "commitlint": "^17.8.1",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3",
-    "react": "18.2.0",
-    "react-native": "0.74.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
+    "react": "18.3.1",
+    "react-native": "0.74.7",
     "react-native-builder-bob": "^0.23.2",
-    "release-it": "^15.0.0",
-    "typescript": "^5.2.2"
+    "release-it": "^15.11.0",
+    "typescript": "^5.7.3"
   },
   "resolutions": {
     "@types/react": "^18.2.44"
@@ -143,15 +143,15 @@
     }
   },
   "dependencies": {
-    "@types/mocha": "^10.0.6",
+    "@types/mocha": "^10.0.10",
     "babel-plugin-istanbul": "^6.1.1",
     "cosmiconfig": "^9.0.0",
     "istanbul-lib-coverage": "^3.2.2",
-    "mocha": "^10.3.0",
-    "mocha-remote-client": "^1.12.2",
-    "mocha-remote-server": "^1.12.2",
-    "nyc": "^17.0.0",
+    "mocha": "^10.8.2",
+    "mocha-remote-client": "^1.13.0",
+    "mocha-remote-server": "^1.13.0",
+    "nyc": "^17.1.0",
     "yargs": "^17.7.2",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   }
 }
