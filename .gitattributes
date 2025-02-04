@@ -1,3 +1,5 @@
 *.pbxproj -text
 # specific for windows script files
 *.bat text eol=crlf
+.yarn/releases/** binary
+.yarn/plugins/** binary
