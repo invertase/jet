@@ -41,20 +41,6 @@ public class Jet extends ReactContextBaseJavaModule {
         });
     }
 
-    /**
-     * Toggle remote debugging
-     *
-     * @param value true/false
-     */
-    @ReactMethod
-    public void debug(Boolean value) {
-        final ReactInstanceManager instanceManager = getReactInstanceManager();
-        if (instanceManager == null) return;
-
-        instanceManager.getDevSupportManager().getDevSettings().setRemoteJSDebugEnabled(value);
-        reload();
-    }
-
     @Override
     public String getName() {
         return "Jet";
