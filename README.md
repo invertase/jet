@@ -13,7 +13,12 @@
   <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
-Archival note: Jet has always been primarily focused on serving Invertase as test scaffolding for react-native-firebase. In a world where the React Native Javascript bundle could execute in a local environment allowing for transparent access to a module's execution context the idea of Jet was incredible. In a Fabric / New Architecture world where the execution context must be on-device, it makes less sense. Invertase is in the progress of migrating to more widely-used industry standard tools (e.g. Appium) for test scaffolding so Jet no longer serves it's intended purpose and is now archived.
+> [!CAUTION]
+> **Jet is no longer actively maintained**:
+>
+> Jet has always been primarily focused on serving Invertase as test scaffolding for react-native-firebase. In a world where the React Native Javascript bundle could execute in a local environment allowing for transparent access to a module's execution context the idea of Jet was incredible. In a Fabric / New Architecture world where the execution context must be on-device, it makes less sense.
+>
+> Invertase is in the progress of migrating to more widely-used industry standard tools (e.g. Appium) for test scaffolding so Jet no longer serves it's intended purpose and is now archived.
 
 ---
 
